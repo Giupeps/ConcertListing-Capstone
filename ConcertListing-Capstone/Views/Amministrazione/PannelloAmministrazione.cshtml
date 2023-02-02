@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "PannelloAmministrazione";
+}
+
+<h2>Pannello Amministrazione</h2>
+
+<div class="container mx-auto border rounded">
+    <ul>
+        <li>
+            @Html.ActionLink("Gestione Artisti", "ListaArtisti", "Artista")
+        </li>
+        <li>
+            @Html.ActionLink("Gestione Luoghi", "ListaLuoghi", "Luogo")
+        </li>
+        <li>
+            @Html.ActionLink("Gestione Concerti", "Index", "Concerto")
+        </li>
+    </ul>
+</div>

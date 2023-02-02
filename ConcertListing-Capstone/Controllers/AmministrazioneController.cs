@@ -6,12 +6,12 @@ using System.Web.Mvc;
 
 namespace ConcertListing_Capstone.Controllers
 {
-    public class HomeController : Controller
+    public class AmministrazioneController : Controller
     {
-        public ActionResult Index()
+        // GET: Amministrazione
+        public ActionResult PannelloAmministrazione()
         {
             return View();
         }
-
     }
 }

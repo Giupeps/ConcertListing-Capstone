@@ -1,0 +1,65 @@
+﻿@model IEnumerable<ConcertListing_Capstone.Models.Concerto>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ImmagineCopertina)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Artista.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Luogo.NomeStruttura)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Luogo.Città)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Data)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.Durata)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <img src="~/Content/ConcertoImg/@Html.DisplayFor(modelItem => item.ImmagineCopertina)" width="300"/>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Artista.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Luogo.NomeStruttura)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Luogo.Città)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Data)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Durata) Ora/e
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.IdConcerto }) |
+            @Html.ActionLink("Details", "Details", new { id = item.IdConcerto }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.IdConcerto })
+        </td>
+    </tr>
+}
+
+</table>

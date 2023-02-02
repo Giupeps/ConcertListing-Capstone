@@ -22,14 +22,15 @@ namespace ConcertListing_Capstone.Models
         [StringLength(30)]
         public string Nome { get; set; }
 
+        
+        public string Foto { get; set; }
+
         [Required]
         public string Descrizione { get; set; }
 
         [Required]
-        [StringLength(20)]
         public string Genere { get; set; }
 
-        [StringLength(20)]
         public string Sottogenere { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -1,0 +1,56 @@
+﻿@model ConcertListing_Capstone.Models.Artista
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Artista</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descrizione)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descrizione)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Genere)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Genere)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sottogenere)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sottogenere)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Foto)
+        </dt>
+        <dd>
+            <img src="~/Content/ArtistaImg/@Html.DisplayFor(model => model.Foto)" width="200" />
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdArtista }) |
+    @Html.ActionLink("Back to List", "ListaArtisti")
+</p>

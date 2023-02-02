@@ -129,7 +129,11 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AmministrazioneController.cs" />
+    <Compile Include="Controllers\ArtistaController.cs" />
+    <Compile Include="Controllers\ConcertoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LuogoController.cs" />
     <Compile Include="Controllers\UtentiController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -137,6 +141,18 @@
     <Compile Include="Migrations\202302011522241_InitialCreate.cs" />
     <Compile Include="Migrations\202302011522241_InitialCreate.designer.cs">
       <DependentUpon>202302011522241_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202302021607255_FotoAdd.cs" />
+    <Compile Include="Migrations\202302021607255_FotoAdd.designer.cs">
+      <DependentUpon>202302021607255_FotoAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202302021623334_changedSottogenereLenght.cs" />
+    <Compile Include="Migrations\202302021623334_changedSottogenereLenght.designer.cs">
+      <DependentUpon>202302021623334_changedSottogenereLenght.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202302021729371_GenereChange.cs" />
+    <Compile Include="Migrations\202302021729371_GenereChange.designer.cs">
+      <DependentUpon>202302021729371_GenereChange.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Artista.cs" />
@@ -229,14 +245,30 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Utenti\Login.cshtml" />
     <Content Include="Views\Utenti\Register.cshtml" />
+    <Content Include="Views\Amministrazione\PannelloAmministrazione.cshtml" />
+    <Content Include="Views\Artista\Create.cshtml" />
+    <Content Include="Views\Artista\Delete.cshtml" />
+    <Content Include="Views\Artista\Details.cshtml" />
+    <Content Include="Views\Artista\Edit.cshtml" />
+    <Content Include="Views\Artista\ListaArtisti.cshtml" />
+    <Content Include="Views\Luogo\Create.cshtml" />
+    <Content Include="Views\Luogo\Delete.cshtml" />
+    <Content Include="Views\Luogo\Details.cshtml" />
+    <Content Include="Views\Luogo\Edit.cshtml" />
+    <Content Include="Views\Luogo\ListaLuoghi.cshtml" />
+    <Content Include="Views\Concerto\Create.cshtml" />
+    <Content Include="Views\Concerto\Delete.cshtml" />
+    <Content Include="Views\Concerto\Details.cshtml" />
+    <Content Include="Views\Concerto\Edit.cshtml" />
+    <Content Include="Views\Concerto\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\ArtistaImg\" />
+    <Folder Include="Content\ConcertoImg\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -246,6 +278,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202302011522241_InitialCreate.resx">
       <DependentUpon>202302011522241_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302021607255_FotoAdd.resx">
+      <DependentUpon>202302021607255_FotoAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302021623334_changedSottogenereLenght.resx">
+      <DependentUpon>202302021623334_changedSottogenereLenght.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302021729371_GenereChange.resx">
+      <DependentUpon>202302021729371_GenereChange.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
