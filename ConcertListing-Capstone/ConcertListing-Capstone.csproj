@@ -134,6 +134,7 @@
     <Compile Include="Controllers\ConcertoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LuogoController.cs" />
+    <Compile Include="Controllers\PostiController.cs" />
     <Compile Include="Controllers\UtentiController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -264,6 +265,11 @@
     <Content Include="Views\Concerto\Details.cshtml" />
     <Content Include="Views\Concerto\Edit.cshtml" />
     <Content Include="Views\Concerto\Index.cshtml" />
+    <Content Include="Views\Posti\Create.cshtml" />
+    <Content Include="Views\Posti\Delete.cshtml" />
+    <Content Include="Views\Posti\Details.cshtml" />
+    <Content Include="Views\Posti\Edit.cshtml" />
+    <Content Include="Views\Posti\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

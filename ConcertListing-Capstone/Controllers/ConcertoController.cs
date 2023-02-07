@@ -79,7 +79,7 @@ namespace ConcertListing_Capstone.Controllers
                 return HttpNotFound();
             }
             ViewBag.IdArtistaBand = new SelectList(db.Artista, "IdArtista", "Nome", concerto.IdArtistaBand);
-            ViewBag.IdLuogo = new SelectList(db.Luogo, "IdLuogo", "NomeStruttura", concerto.IdLuogo);
+            ViewBag.IdLuogo = new SelectList(db.Luogo, "IdLuogo", "NomeStruttura", concerto.IdLuogo); 
             return View(concerto);
         }
 
@@ -91,6 +91,9 @@ namespace ConcertListing_Capstone.Controllers
         public ActionResult Edit([Bind(Include = "IdConcerto,Data,ImmagineCopertina,Durata,IdLuogo,IdArtistaBand")] Concerto concerto, HttpPostedFileBase FotoConcerto)
         {
             Concerto ConcertoDB = db.Concerto.Find(concerto.IdConcerto);
+            concerto.Data = ConcertoDB.Data;
+            ModelState.Remove("ImmagineCopertina");
+            ModelState.Remove("Data");
             if (ModelState.IsValid)
             {
                 ConcertoDB.Data = concerto.Data;

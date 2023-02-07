@@ -27,6 +27,7 @@ namespace ConcertListing_Capstone.Models
         public int PostiVenduti { get; set; }
 
         [Column(TypeName = "money")]
+        [DisplayFormat(DataFormatString = "{0:c}")]
         public decimal Prezzo { get; set; }
 
         public int IdLuogo { get; set; }

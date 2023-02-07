@@ -7,6 +7,7 @@ namespace ConcertListing_Capstone.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Runtime.CompilerServices;
 
     [Table("Concerto")]
     public partial class Concerto
@@ -20,7 +21,8 @@ namespace ConcertListing_Capstone.Models
         [Key]
         public int IdConcerto { get; set; }
 
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yy}")]
+        
+        [DisplayFormat(DataFormatString = "{0:yyyy/dd/MM}", ApplyFormatInEditMode = true)]
         public DateTime Data { get; set; }
 
         [Required]
