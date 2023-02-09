@@ -183,6 +183,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\Img\Concerto_logo.jpg" />
+    <Content Include="Content\Img\sfondo-capstone.png" />
     <Content Include="Content\Style.css">
       <DependentUpon>Style.scss</DependentUpon>
     </Content>
@@ -270,6 +272,7 @@
     <Content Include="Views\Posti\Details.cshtml" />
     <Content Include="Views\Posti\Edit.cshtml" />
     <Content Include="Views\Posti\Index.cshtml" />
+    <Content Include="Views\Home\_PWListaConcerti.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

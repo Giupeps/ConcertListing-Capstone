@@ -4,11 +4,12 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
+@if (User.IsInRole("Admin"))
+{
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+}
 <table class="table">
     <tr>
         <th>
@@ -46,11 +47,13 @@
         <td>
             @Html.DisplayFor(modelItem => item.Sottogenere)
         </td>
+        @if (User.IsInRole("Admin"))
+        {
         <td>
             @Html.ActionLink("Edit", "Edit", new { id = item.IdArtista }) |
-            @Html.ActionLink("Details", "Details", new { id = item.IdArtista }) |
             @Html.ActionLink("Delete", "Delete", new { id = item.IdArtista })
         </td>
+        }
     </tr>
 }
 

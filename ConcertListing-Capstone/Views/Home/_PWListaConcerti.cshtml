@@ -1,0 +1,23 @@
+﻿@model IEnumerable<ConcertListing_Capstone.Models.Concerto>
+
+
+
+<div class="container-fluid d-flex flex-column justify-content-around ">
+    @foreach (var item in Model)
+    {
+
+        <div id="card-concerto-index" class="card d-flex flex-row me-2 mb-2">
+            <div class="card-img">
+                <img class="card-img-top" src="~/Content/ConcertoImg/@Html.DisplayFor(modeItem => item.ImmagineCopertina)" alt="Card image cap">
+            </div>
+            <div class="card-body d-flex flex-column align-items-end justify-content-between">
+                <h5 class="card-title fs-2 fw-bold">@Html.DisplayFor(modelItem => item.Artista.Nome)</h5>
+                <p class="card-tex fs-4 fst-italic">@Html.DisplayFor(modelItem => item.Luogo.NomeStruttura), @Html.DisplayFor(modelItem => item.Luogo.Città)</p>
+                <p class="card-text fs-5 fw-bold">@Html.DisplayFor(modelItem => item.Data)</p>
+                <div class="btn btn-primary fw-bold">@Html.ActionLink("Dettagli", "Details", "Concerto", new { id = item.IdConcerto }, null)</div>
+            </div>
+        </div>
+    }
+</div>
+
+

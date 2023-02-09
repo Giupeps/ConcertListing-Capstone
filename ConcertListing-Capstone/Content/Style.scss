@@ -1,6 +1,67 @@
 ﻿body {
+    background-color:whitesmoke;
 }
 
 input, select, textarea {
     max-width: 280px;
+}
+
+//Navbar style
+#header-img {
+    background-image: url(Img/Concerto_logo.jpg);
+    height: 35vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity:0.8;
+
+    h1 {
+        font-size: 6em;
+        color: white;
+        letter-spacing: 1rem;
+        text-transform: uppercase;
+    }
+}
+.navbar{
+    background-color: #333;
+    color: white;
+    margin-bottom: 2em;
+
+    a{
+        text-decoration: none;
+        color: white;
+    }
+
+    a:hover{
+        font-weight: bold;
+    }
+}
+
+//Home card style
+#card-concerto-index {
+    width: 100%;
+
+
+    .card-img {
+        width: 60%;
+    }
+
+    .card-body {
+        width: 30%;
+
+        .card-title {
+            text-transform: uppercase;
+            letter-spacing: 0.2rem;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .btn {
+            text-transform: lowercase;
+            letter-spacing: 0.1rem;
+        }
+    }
 }
