@@ -27,7 +27,7 @@ namespace ConcertListing_Capstone.Controllers
             var user = db.Utenti.Where(x => x.Username == username && x.Password == password).FirstOrDefault();
             if (user != null)
             {
-                FormsAuthentication.SetAuthCookie(u.Username, false);
+                FormsAuthentication.SetAuthCookie(u.Username, true);
                 return Redirect(FormsAuthentication.DefaultUrl);
             }
             else

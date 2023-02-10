@@ -1,0 +1,67 @@
+﻿@model IEnumerable<ConcertListing_Capstone.Models.Ordine>
+
+@{
+    ViewBag.Title = "Carrello";
+}
+
+<h2>Carrello</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Concerto.ImmagineCopertina)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Concerto.Artista.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Posti.Luogo.Città)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Posti.Luogo.NomeStruttura)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Posti.Zona)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Quantità)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrezzoTotale)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+           <img src="~/Content/ConcertoImg/@Html.DisplayFor(modelItem => item.Concerto.ImmagineCopertina)" width="150"/>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Concerto.Artista.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Concerto.Luogo.Città)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Concerto.Luogo.NomeStruttura)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Posti.Zona)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Quantità)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrezzoTotale)
+        </td>
+        <td>
+            @Html.ActionLink("Delete", "Delete", new { id = item.IdOrdine })
+        </td>
+    </tr>
+}
+
+</table>

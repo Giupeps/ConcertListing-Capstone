@@ -1,0 +1,58 @@
+﻿@model ConcertListing_Capstone.Models.Ordine
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Ordine</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Concerto.ImmagineCopertina)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Concerto.ImmagineCopertina)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Posti.Zona)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Posti.Zona)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Utenti.Username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Utenti.Username)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Quantità)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quantità)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrezzoTotale)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrezzoTotale)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdOrdine }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

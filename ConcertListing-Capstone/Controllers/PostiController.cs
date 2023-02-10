@@ -120,6 +120,12 @@ namespace ConcertListing_Capstone.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult PWPostiDisponibili(int idLuogo)
+        {
+            TempData["IdLuogo"] = idLuogo;
+            var posti = db.Posti.Where(x => x.IdLuogo== idLuogo);
+            return PartialView("_PWPostiDisponibili", posti);
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)

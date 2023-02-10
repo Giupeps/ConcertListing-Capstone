@@ -24,6 +24,7 @@ namespace ConcertListing_Capstone.Controllers
         // GET: Concerto/Details/5
         public ActionResult Details(int? id)
         {
+            TempData["IdConcerto"] = id;
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -141,7 +142,10 @@ namespace ConcertListing_Capstone.Controllers
             return RedirectToAction("Index");
         }
 
-       
+       public ActionResult PaginaConcerti()
+        {
+            return View();
+        }
 
         protected override void Dispose(bool disposing)
         {

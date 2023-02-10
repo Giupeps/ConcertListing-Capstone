@@ -1,0 +1,44 @@
+﻿@model IEnumerable<ConcertListing_Capstone.Models.Posti>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Zona)
+        </th>
+        <th>
+            Posti Disponibili
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Prezzo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Zona)
+        </td>
+        @{ 
+            var postidisponibili = item.PostiTotali - item.PostiVenduti;
+        <td>
+            @postidisponibili
+
+        </td>
+            }
+        <td>
+            @Html.DisplayFor(modelItem => item.Prezzo)
+        </td>
+        <td>
+            <input type="number" name="PostiScelti" />
+        </td>
+        <td>
+            @Html.ActionLink("Acquista", "Compra", "Ordine", new { id=item.IdPosti, prezzo = item.Prezzo}, null) 
+        </td>
+    </tr>
+}
+
+</table>

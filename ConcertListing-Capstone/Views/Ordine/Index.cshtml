@@ -1,0 +1,57 @@
+﻿@model IEnumerable<ConcertListing_Capstone.Models.Ordine>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Concerto.ImmagineCopertina)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Posti.Zona)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Utenti.Username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quantità)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrezzoTotale)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Concerto.ImmagineCopertina)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Posti.Zona)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Utenti.Username)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quantità)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrezzoTotale)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdOrdine }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdOrdine }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdOrdine })
+        </td>
+    </tr>
+}
+
+</table>

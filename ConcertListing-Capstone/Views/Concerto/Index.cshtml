@@ -47,9 +47,17 @@
         <td>
             @Html.DisplayFor(modelItem => item.Luogo.Città)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Data.Date)
-        </td>
+        
+            @{ 
+
+                DateTime data = item.Data;
+               <td>
+
+               @data.ToShortDateString()
+               </td>
+            }
+            @*@Html.DisplayFor(modelItem => data)*@
+       
 
         <td>
             @Html.DisplayFor(modelItem => item.Durata) Ora/e

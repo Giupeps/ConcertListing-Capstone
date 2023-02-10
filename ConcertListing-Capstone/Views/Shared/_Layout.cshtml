@@ -27,6 +27,9 @@
                             @Html.ActionLink("Home", "Index", "Home")
                         </li>
                         <li class="nav-item me-3">
+                            @Html.ActionLink("Concerti", "PaginaConcerti", "Concerto")
+                        </li>
+                        <li class="nav-item me-3">
                             @Html.ActionLink("Artisti", "ListaArtisti", "Artista")
                         </li>
                         <li class="nav-item">
@@ -38,6 +41,9 @@
                     <ul class="navbar-nav px-3">
                         @if (User.Identity.IsAuthenticated)
                         {
+                            <li class="nav-item me-3">
+                                @Html.ActionLink("Carrello", "Carrello", "Ordine")
+                            </li>
                             <li class="nav-item">
                                 @Html.ActionLink("Logout", "Logout", "Utenti")
                             </li>

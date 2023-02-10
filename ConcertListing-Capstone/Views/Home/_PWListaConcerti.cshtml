@@ -14,7 +14,7 @@
                 <h5 class="card-title fs-2 fw-bold">@Html.DisplayFor(modelItem => item.Artista.Nome)</h5>
                 <p class="card-tex fs-4 fst-italic">@Html.DisplayFor(modelItem => item.Luogo.NomeStruttura), @Html.DisplayFor(modelItem => item.Luogo.Città)</p>
                 <p class="card-text fs-5 fw-bold">@Html.DisplayFor(modelItem => item.Data)</p>
-                <div class="btn btn-primary fw-bold">@Html.ActionLink("Dettagli", "Details", "Concerto", new { id = item.IdConcerto }, null)</div>
+                <div class="btn btn-primary fw-bold">@Html.ActionLink("Dettagli", "Details", "Concerto", new { id = item.IdConcerto, idLuogo = item.IdLuogo }, null)</div>
             </div>
         </div>
     }

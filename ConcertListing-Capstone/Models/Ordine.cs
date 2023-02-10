@@ -28,5 +28,7 @@ namespace ConcertListing_Capstone.Models
         public virtual Posti Posti { get; set; }
 
         public virtual Utenti Utenti { get; set; }
+
+        public static List<Ordine> ListaCarrello = new List<Ordine>();
     }
 }
