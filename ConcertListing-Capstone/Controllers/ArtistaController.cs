@@ -20,6 +20,8 @@ namespace ConcertListing_Capstone.Controllers
             return View(db.Artista.ToList());
         }
 
+
+
         // GET: Artista/Details/5
         public ActionResult Details(int? id)
         {
@@ -96,10 +98,10 @@ namespace ConcertListing_Capstone.Controllers
                     FotoArtista.SaveAs(Server.MapPath("/Content/ArtistaImg/" + ArtistaDB.Foto));
                 }
             }
-                db.Entry(ArtistaDB).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("ListaArtisti");
-            
+            db.Entry(ArtistaDB).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("ListaArtisti");
+
         }
 
         // GET: Artista/Delete/5
@@ -126,6 +128,23 @@ namespace ConcertListing_Capstone.Controllers
             db.Artista.Remove(artista);
             db.SaveChanges();
             return RedirectToAction("ListaArtisti");
+        }
+
+
+        public JsonResult ArtistBySearch(string search)
+        {
+            ArtistaJson aj = new ArtistaJson();
+
+            Concerto a = db.Concerto.Where(x => x.Artista.Nome.Contains(search)).Include(x => x.Artista).FirstOrDefault();
+            if (a != null)
+            {
+
+                aj.Nome = a.Artista.Nome;
+                aj.IdArtista = a.Artista.IdArtista;
+                aj.Foto = a.Artista.Foto;
+                aj.IdConcerto = a.IdConcerto;
+            }
+            return Json(aj, JsonRequestBehavior.AllowGet);
         }
 
         protected override void Dispose(bool disposing)

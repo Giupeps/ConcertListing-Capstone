@@ -156,8 +156,18 @@
     <Compile Include="Migrations\202302021729371_GenereChange.designer.cs">
       <DependentUpon>202302021729371_GenereChange.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202302111824484_concertijsonadded.cs" />
+    <Compile Include="Migrations\202302111824484_concertijsonadded.designer.cs">
+      <DependentUpon>202302111824484_concertijsonadded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202302111833257_cancelledrequired.cs" />
+    <Compile Include="Migrations\202302111833257_cancelledrequired.designer.cs">
+      <DependentUpon>202302111833257_cancelledrequired.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Artista.cs" />
+    <Compile Include="Models\ArtistaJson.cs" />
+    <Compile Include="Models\ConcertiJson.cs" />
     <Compile Include="Models\Concerto.cs" />
     <Compile Include="Models\Luogo.cs" />
     <Compile Include="Models\ModelDBContext.cs" />
@@ -282,6 +292,8 @@
     <Content Include="Views\Ordine\Edit.cshtml" />
     <Content Include="Views\Ordine\Index.cshtml" />
     <Content Include="Views\Ordine\Carrello.cshtml" />
+    <Content Include="Views\Luogo\RicercaPerCitta.cshtml" />
+    <Content Include="Views\Artista\ArtistBySearch.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -305,6 +317,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202302021729371_GenereChange.resx">
       <DependentUpon>202302021729371_GenereChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302111824484_concertijsonadded.resx">
+      <DependentUpon>202302111824484_concertijsonadded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302111833257_cancelledrequired.resx">
+      <DependentUpon>202302111833257_cancelledrequired.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

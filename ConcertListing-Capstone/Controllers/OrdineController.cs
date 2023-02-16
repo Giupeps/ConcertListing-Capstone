@@ -38,7 +38,7 @@ namespace ConcertListing_Capstone.Controllers
         }
 
         // GET: Ordine/Create
-       public ActionResult Compra(int id, decimal prezzo, string PostiScelti)
+       public JsonResult Compra(int iddata, string prezzodata, int postodata)
         {
             int idUtente = db.Utenti.Where(x => x.Username == User.Identity.Name).First().IdUtente;
             int idConcerto = Convert.ToInt32(TempData["IdConcerto"]);
@@ -48,13 +48,15 @@ namespace ConcertListing_Capstone.Controllers
             Artista artista = new Artista();
             Luogo luogo = new Luogo();
             Posti posti = new Posti();
-            ordine.Quantità = Convert.ToInt32(PostiScelti);
-            ordine.PrezzoTotale = prezzo * ordine.Quantità;
-            ordine.IdPosto = id;
+            ordine.Quantità = postodata;
+            char[] charArray = { '\n', ' ', '€' };
+            string prezzofinale = prezzodata.Trim(charArray);
+            ordine.PrezzoTotale = Convert.ToDecimal(prezzofinale) * ordine.Quantità;
+            ordine.IdPosto = iddata;
             ordine.IdConcerto = idConcerto;
             ordine.IdUtente = idUtente;
 
-            posti.Zona = db.Posti.Find(id).Zona;
+            posti.Zona = db.Posti.Find(iddata).Zona;
             ordine.Posti = posti;
             
             concerto.ImmagineCopertina = db.Concerto.Find(idConcerto).ImmagineCopertina;
@@ -68,7 +70,16 @@ namespace ConcertListing_Capstone.Controllers
             ordine.Concerto.Artista = artista;
             
             Ordine.ListaCarrello.Add(ordine);
-            return RedirectToAction("Details", "Concerto", new { id = idConcerto, idLuogo = IdLuogo });
+            return Json("Prodotto aggiunto al carrello", JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult Conferma()
+        {
+            foreach (Ordine item in Ordine.ListaCarrello)
+            {
+              db.Entry(item);
+                db.SaveChanges();
+            }
         }
 
         public ActionResult Carrello()

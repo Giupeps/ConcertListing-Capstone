@@ -1,0 +1,64 @@
+﻿@model IEnumerable<ConcertListing_Capstone.Models.Luogo>
+
+@{
+    ViewBag.Title = "RicercaPerCitta";
+}
+
+<h2>RicercaPerCitta</h2>
+
+<div class="container">
+    <div id="Query">
+        @foreach (var item in Model)
+        {
+            <p class="mx-2 mb-3 fs-5">@Html.DisplayFor(modelItem => item.Città) <input type="checkbox" class="CheckValue" name="@item.Città" value="@item.Città" /></p>
+        }
+    </div>
+
+    <button id="SearchType" class="btn bgprimary mb-5 mt-5">Cerca Artista</button>
+
+    <div id="ResultSearch" class="mt-5 mb-5 d-flex gap-2"></div>
+
+</div>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#SearchType").click(function () {
+            $("#ResultSearch").empty();
+            var mycheck = new Array();
+
+            $(".CheckValue:checked").each(function () {
+                mycheck.push($(this).val());
+            });
+            $.ajax({
+                method: 'POST',
+                data: { 'selezione': mycheck },
+                url: 'ConcertiPerCitta',
+                success: function (a) {
+
+                    if (a.length == 0) {
+                        $("#ResultSearch").append("<div class=\"alert alert-warning\">Nessun Concerto Trovato </div>")
+                    }
+                    $.each(a, function (index, valore) {
+
+
+                        $("#ResultSearch").append("<div class=\"concert-card\" >" +
+                            "<a class= \"mainbody\"href=\"/Concerto/Details/" + valore.IdConcerto + "?IdLuogo=" + valore.IdLuogo + "\" data-id=\"" + valore.IdLuogo + "\">" +
+                            "<div class=\"cardBody\">" +
+                            "<h5 class=\"card-title\">" + valore.Nome + "</h5>" +
+                            "<p class=\"card-text\">" + valore.Città + "</p>" +
+                            "<p class=\"card-text\">" + valore.Data + "</p>" +
+                            "</div>" +
+                            "<img src=\"/Content/ConcertoImg/" + valore.ImmagineCopertina + "\" class=\"card-img-bottom\" width=200>" +
+                            "</a></div>"
+                        );
+
+                    })
+
+                }
+            })
+        })
+    })
+
+</script>

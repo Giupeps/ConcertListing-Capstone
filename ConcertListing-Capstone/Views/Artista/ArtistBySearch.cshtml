@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewBag.Title = "ArtistBySearch";
+}
+
+<h2>ArtistBySearch</h2>
+
+<div class="container-fluid d-flex justify-content-start align-items-center ms-5">
+    <div class="searchSection">
+        <form class="" role="search">
+            <h2 class="fs-1">Cerca il tuo amico a 4 zampe</h2>
+            <div class="d-flex w-75">
+                <input class="form-control me-2" id="SearchArtist" type="search" placeholder="Digita il nome dell'artista'" aria-label="Search">
+                <btn class="button bgprimary" id="ArtistBySearch" type="submit">Cerca</btn>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="ms-5">
+    <div id="showInfo" class="my-5 mx-3">
+
+
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $("#GetAnimalByMC").click(function () {
+            var MC = $('#SearchArtist').val();
+            $('#showInfo').empty();
+
+            $.ajax({
+                method: 'POST',
+                data: { 'Search': Search },
+                url: '/Artista/ArtistBySearch',
+                success: function (a) {
+                    if (a.Nome == null) {
+                        $("#showInfo").append("<div class=\"alert alert-warning mt-2\" style=\"width:200px\">Non è stato trovato alcun artista</div>"
+                        )
+                    } else {
+                        $("#showInfo").append("<div class=\"animalCard\" >" +
+                            "<a href=\"../Visite/Index/" + a.IdAnimale + "\">" +
+                            "<div class=\"cardBody\">" +
+                            "<img class=\"cardIcon\" src=\"/Content/Assets/Img/pet-friendly.png\" style=\"width:100px\" />"+
+                            "<h5 class=\"card-title\">" + a.Nome + "</h5>" +
+
+                            "</div>" +
+                            "<img src=\"/Content/ArtistaImg/" + a.Foto + "\" class=\"card-img-bottom\">" +
+                            "</a></div>"
+                        );
+
+                    }
+
+
+                }
+            })
+        })
+
+    })
+
+</script>

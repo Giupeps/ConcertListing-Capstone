@@ -4,13 +4,27 @@
     ViewBag.Title = "Index";
 }
 
+
+<div class="container-fluid d-flex justify-content-start align-items-center ms-5">
+    <div class="searchSection">
+        <form class="" role="search">
+            <div class="d-flex w-100">
+                <input class="form-control me-2" id="SearchArtist" type="search" placeholder="Digita il nome dell'artista'" aria-label="Search">
+                <btn class="button bgprimary" id="ArtistBySearch" type="submit">Cerca</btn>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
 @if (User.IsInRole("Admin"))
 {
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
 }
-<table class="table">
+<table class="table" id="artist-list">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Foto)
@@ -30,31 +44,72 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-           <img src="~/Content/ArtistaImg/@Html.DisplayFor(modelItem => item.Foto)" width="200"/>
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Descrizione)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Genere)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Sottogenere)
-        </td>
-        @if (User.IsInRole("Admin"))
-        {
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.IdArtista }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.IdArtista })
-        </td>
-        }
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <img src="~/Content/ArtistaImg/@Html.DisplayFor(modelItem => item.Foto)" width="200" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descrizione)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Genere)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sottogenere)
+            </td>
+            @if (User.IsInRole("Admin"))
+            {
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.IdArtista }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.IdArtista })
+                </td>
+            }
+        </tr>
+    }
 
 </table>
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $("#ArtistBySearch").click(function () {
+            var search = $('#SearchArtist').val();
+            $('#artist-list').empty();
+
+            $.ajax({
+                method: 'POST',
+                data: { 'search': search },
+                url: '/Artista/ArtistBySearch',
+                success: function (a) {
+                    if (a.Nome == null) {
+                        $("#artist-list").append("<div class=\"alert alert-warning mt-2\" style=\"width:200px\">Non è stato trovato alcun artista</div>"
+                        )
+                    } else {
+                        $("#artist-list").append("<div class=\"animalCard\" >" +
+                            "<a href=\"../Artista/Details/" + a.IdArtista + "\">" +
+                            "<div class=\"cardBody\">" +
+                            "<img class=\"cardIcon\" src=\"/Content/Assets/Img/pet-friendly.png\" style=\"width:100px\" />"+
+                            "<h5 class=\"card-title\">" + a.Nome + "</h5>" +
+
+                            "</div>" +
+                            "<img src=\"/Content/ArtistaImg/" + a.Foto + "\" class=\"card-img-bottom\" style=\"width:200px\">" +
+                            "</a></div>"
+                        );
+
+                    }
+
+
+                }
+            })
+        })
+
+    })
+
+</script>

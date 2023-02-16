@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.WebPages;
 using ConcertListing_Capstone.Models;
 
 namespace ConcertListing_Capstone.Controllers
@@ -18,6 +19,34 @@ namespace ConcertListing_Capstone.Controllers
         public ActionResult ListaLuoghi()
         {
             return View(db.Luogo.ToList());
+        }
+
+        public ActionResult RicercaPerCitta()
+        {
+            return View(db.Luogo.ToList());
+        }
+
+        public JsonResult ConcertiPerCitta(string[] selezione)
+        {
+            List<ConcertiJson> cj = new List<ConcertiJson>();
+
+            foreach (var item in selezione)
+            {
+                
+
+                List<Concerto> concertipercitta = db.Concerto.Where(x => x.Luogo.Città == item).Include(x => x.Luogo).Include(x => x.Artista).ToList();
+
+                
+
+                foreach (var i in concertipercitta)
+                {
+                    ConcertiJson j = new ConcertiJson { Nome = i.Artista.Nome, ImmagineCopertina = i.ImmagineCopertina, Città = i.Luogo.Città, Data = i.Data.ToString("d"), IdConcerto = i.IdConcerto, IdLuogo = i.IdLuogo};
+                    cj.Add(j);
+                }
+
+
+            }
+                return Json(cj, JsonRequestBehavior.AllowGet);
         }
 
         // GET: Luogo/Details/5

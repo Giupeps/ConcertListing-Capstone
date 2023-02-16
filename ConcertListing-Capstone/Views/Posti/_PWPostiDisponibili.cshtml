@@ -1,8 +1,11 @@
 ﻿@model IEnumerable<ConcertListing_Capstone.Models.Posti>
 
-
+<p id="messaggio-conferma"></p>
 <table class="table">
     <tr>
+        <th>
+
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.Zona)
         </th>
@@ -20,6 +23,9 @@
 {
     <tr>
         <td>
+            @Html.HiddenFor(modelItem => item.IdPosti, new {@class="idposti"})
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.Zona)
         </td>
         @{ 
@@ -30,15 +36,46 @@
         </td>
             }
         <td>
-            @Html.DisplayFor(modelItem => item.Prezzo)
+            <span class = "prezzo">
+                @Html.DisplayFor(modelItem => item.Prezzo)
+            </span>
         </td>
         <td>
-            <input type="number" name="PostiScelti" />
+            <input type="number" name="PostiScelti" class="postinumber" />
         </td>
         <td>
-            @Html.ActionLink("Acquista", "Compra", "Ordine", new { id=item.IdPosti, prezzo = item.Prezzo}, null) 
+          <button class="btn btn-success invio" >
+              Conferma
+          </button>
         </td>
     </tr>
 }
 
 </table>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var dataId = $(".idposti")
+        var dataPrezzo = $(".prezzo")
+        var dataPosti = $(".postinumber")
+        var dataButton = $(".invio")
+
+        $.each(dataButton, function (index, a) {
+            $(a).click(function () {
+                var singoloId = dataId.eq(index).val()
+                var singoloPrezzo = dataPrezzo.eq(index).text()
+                var singoloPosto = dataPosti.eq(index).val()
+
+                console.log(singoloPrezzo)
+                $.ajax({
+                    method: 'POST',
+                    data: { iddata: singoloId, prezzodata: singoloPrezzo, postodata: singoloPosto },
+                    url: "/Ordine/Compra",
+                    success: function (a) {
+                        $("#messaggio-conferma").append("<div class=\"alert alert-success mt-2\" style=\"width:200px\"> Prodotto aggiunto al carrello</div>")
+                    }
+                })
+            })
+        })
+    })
+</script>
