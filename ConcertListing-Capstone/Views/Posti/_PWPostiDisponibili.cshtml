@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<ConcertListing_Capstone.Models.Posti>
 
 <p id="messaggio-conferma"></p>
-<table class="table">
+@*<table class="table">
     <tr>
         <th>
 
@@ -17,41 +17,52 @@
             @Html.DisplayNameFor(model => model.Prezzo)
         </th>
         <th></th>
-    </tr>
+    </tr>*@
 
-@foreach (var item in Model)
-{
-    <tr>
-        <td>
-            @Html.HiddenFor(modelItem => item.IdPosti, new {@class="idposti"})
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Zona)
-        </td>
-        @{ 
-            var postidisponibili = item.PostiTotali - item.PostiVenduti;
-        <td>
-            @postidisponibili
 
-        </td>
+
+<div class="card-posti">
+    <div class="inner align-items-center">
+        <h2 class="title">Scegli i tuoi posti</h2>
+        <div class="container d-flex flex-wrap justify-content-end">
+            @if (User.Identity.IsAuthenticated)
+            {
+                foreach (var item in Model)
+                {
+                    <div class="d-flex box-info-concerto justify-content-between align-items-center  mb-2">
+                        <div class="d-flex w-50 justify-content-between me-3">
+                            @Html.HiddenFor(modelItem => item.IdPosti, new { @class = "idposti" })
+                            <p class="m-0">
+
+                                @Html.DisplayFor(modelItem => item.Zona)
+                            </p>
+
+
+                            <span class="prezzo">
+                                @Html.DisplayFor(modelItem => item.Prezzo)
+                            </span>
+                        </div>
+                        |
+                        <div class="d-flex w-50 justify-content-evenly">
+                            <input type="number" name="PostiScelti" class="postinumber mx-2 w-25" />
+                            <button class="personal-button invio">
+                                Conferma
+                            </button>
+                        </div>
+                    </div>
+                }
+
             }
-        <td>
-            <span class = "prezzo">
-                @Html.DisplayFor(modelItem => item.Prezzo)
-            </span>
-        </td>
-        <td>
-            <input type="number" name="PostiScelti" class="postinumber" />
-        </td>
-        <td>
-          <button class="btn btn-success invio" >
-              Conferma
-          </button>
-        </td>
-    </tr>
-}
+            else
+            {
+                <p class="alert-danger">
+                    @TempData["LoginNecessario"]
+                </p>
+            }
+        </div>
+    </div>
+</div>
 
-</table>
 
 <script type="text/javascript">
     $(document).ready(function () {

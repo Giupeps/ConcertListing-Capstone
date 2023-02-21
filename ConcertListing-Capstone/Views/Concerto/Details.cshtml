@@ -4,59 +4,39 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
 
-<div>
-    <h4>Concerto</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Artista.Nome)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Artista.Nome)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Luogo.NomeStruttura)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Luogo.NomeStruttura)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Data)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Data)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ImmagineCopertina)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ImmagineCopertina)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Durata)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Durata)
-        </dd>
-
-    </dl>
-
-    @{ Html.RenderAction("PWPostiDisponibili", "Posti");}
+<div class="text-center mb-3">
+    <h2>Acquista i biglietti per <span> @Html.DisplayFor(model => model.Artista.Nome) </span></h2>
 </div>
 <p>
     
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Torna Indietro", "PaginaConcerti")
 </p>
+
+<div class="container">
+    <div class="row align-items-center">
+        <div class="col-6">
+            <div class="tile">
+                <div class="wrapper" style="background-image: url(/Content/ConcertoImg/@Html.DisplayFor(model => model.ImmagineCopertina));">
+                  
+
+
+                    <div class="dates">
+                        <div class="start">
+                            <strong>Data</strong> @Html.DisplayFor(model => model.Data.Date)
+                            <span></span>
+                        </div>
+                        <div class="ends">
+                            <strong>A</strong> @Html.DisplayFor(model => model.Luogo.Città), @Html.DisplayFor(model => model.Luogo.NomeStruttura)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            @{ Html.RenderAction("PWPostiDisponibili", "Posti");}
+        </div>
+    </div>
+</div>
 
 

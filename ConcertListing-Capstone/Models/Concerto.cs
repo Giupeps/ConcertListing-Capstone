@@ -21,7 +21,7 @@ namespace ConcertListing_Capstone.Models
         [Key]
         public int IdConcerto { get; set; }
 
-        
+        [Column(TypeName = "date")]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime Data { get; set; }
 

@@ -164,6 +164,10 @@
     <Compile Include="Migrations\202302111833257_cancelledrequired.designer.cs">
       <DependentUpon>202302111833257_cancelledrequired.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202302201546258_changedatetime.cs" />
+    <Compile Include="Migrations\202302201546258_changedatetime.designer.cs">
+      <DependentUpon>202302201546258_changedatetime.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Artista.cs" />
     <Compile Include="Models\ArtistaJson.cs" />
@@ -194,7 +198,12 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\Img\coldplay.jpg" />
     <Content Include="Content\Img\Concerto_logo.jpg" />
+    <Content Include="Content\Img\dua-lipa.png" />
+    <Content Include="Content\Img\eminem.jpg" />
+    <Content Include="Content\Img\joe-satriani.jpg" />
+    <Content Include="Content\Img\ladygaga.jpg" />
     <Content Include="Content\Img\sfondo-capstone.png" />
     <Content Include="Content\Style.css">
       <DependentUpon>Style.scss</DependentUpon>
@@ -237,6 +246,8 @@
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
+    <Content Include="Content\_variables.scss" />
+    <Content Include="Content\_mixins.scss" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -294,6 +305,8 @@
     <Content Include="Views\Ordine\Carrello.cshtml" />
     <Content Include="Views\Luogo\RicercaPerCitta.cshtml" />
     <Content Include="Views\Artista\ArtistBySearch.cshtml" />
+    <Content Include="Views\Ordine\VediOrdine.cshtml" />
+    <Content Include="Views\Concerto\_PWConcerti.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -323,6 +336,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202302111833257_cancelledrequired.resx">
       <DependentUpon>202302111833257_cancelledrequired.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302201546258_changedatetime.resx">
+      <DependentUpon>202302201546258_changedatetime.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

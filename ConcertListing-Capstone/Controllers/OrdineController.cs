@@ -75,11 +75,31 @@ namespace ConcertListing_Capstone.Controllers
 
         public ActionResult Conferma()
         {
-            foreach (Ordine item in Ordine.ListaCarrello)
-            {
-              db.Entry(item);
+            int count = 0;
+            foreach (Ordine item in Ordine.ListaCarrello) { 
+
+                
+                Ordine ordine = new Ordine();
+                ordine.Quantità = item.Quantità;
+                ordine.PrezzoTotale = item.PrezzoTotale;
+                ordine.IdConcerto = item.IdConcerto;
+                ordine.IdPosto= item.IdPosto;
+                ordine.IdUtente = item.IdUtente;
+                
+                db.Ordine.Add(ordine);
                 db.SaveChanges();
-            }
+                 count++;
+        }
+            TempData["count"] = count;
+            Ordine.ListaCarrello.Clear();
+            return RedirectToAction("VediOrdine");
+        }
+
+        public ActionResult VediOrdine()
+        {
+            int count = Convert.ToInt32(TempData["count"]);
+            var ordine = db.Ordine.Where( x => x.Utenti.Username == User.Identity.Name).OrderByDescending(x => x.IdOrdine).Take(count).ToList();
+            return View(ordine);
         }
 
         public ActionResult Carrello()

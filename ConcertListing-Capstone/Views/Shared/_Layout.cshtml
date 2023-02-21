@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Applicazione ASP.NET</title>
@@ -9,20 +9,19 @@
     @Scripts.Render("~/bundles/modernizr")
 
     @Scripts.Render("~/bundles/jquery")
+    <link rel="stylesheet" href="https://kit.fontawesome.com/872d60ae5c.css" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 </head>
 <body>
-    <div id="header-img">
-    </div>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container-fluid">
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-between  py-3" id="navbarNavDropdown">
-                <div>
-                    <a class="navbar-brand ms-3" href="#">JustTicket</a>
-                </div>
+
                 <div>
                     <ul class="navbar-nav">
                         <li class="nav-item me-3">
@@ -37,9 +36,12 @@
                         <li class="nav-item me-3">
                             @Html.ActionLink("Località", "RicercaPerCitta", "Luogo")
                         </li>
+                        @if (User.IsInRole("Admin"))
+                        {
                         <li class="nav-item">
                             @Html.ActionLink("Amministrazione", "PannelloAmministrazione", "Amministrazione")
                         </li>
+                        }
                     </ul>
                 </div>
                 <div>
@@ -47,7 +49,11 @@
                         @if (User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item me-3">
-                                @Html.ActionLink("Carrello", "Carrello", "Ordine")
+
+                                @Html.ActionLink("Carrello ", "Carrello", "Ordine")
+                                <i class="bi bi-bag-plus fs-5">
+                                </i>
+
                             </li>
                             <li class="nav-item">
                                 @Html.ActionLink("Logout", "Logout", "Utenti")
@@ -69,11 +75,55 @@
     </nav>
     <div class="container body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Applicazione ASP.NET</p>
-        </footer>
     </div>
+
+    <footer class="text-center text-white d-flex justify-content-between fixed-bottom">
+        <!-- Grid container -->
+        <div class="container">
+            <!-- Section: Social media -->
+            <section>
+                <!-- Facebook -->
+                <a class="btn btn-link btn-floating btn-lg text-white m-1"
+                   href="#!"
+                   role="button"
+                   data-mdb-ripple-color="dark">
+                    <i class="bi bi-facebook"></i>
+                </a>
+
+                <!-- Twitter -->
+                <a class="btn btn-link btn-floating btn-lg text-white m-1"
+                   href="#!"
+                   role="button"
+                   data-mdb-ripple-color="dark">
+                    <i class="bi bi-twitter"></i>
+                </a>
+
+                <!-- Google -->
+                <a class="btn btn-link btn-floating btn-lg text-white m-1"
+                   href="#!"
+                   role="button"
+                   data-mdb-ripple-color="dark">
+                    <i class="bi bi-google"></i>
+                </a>
+
+                <!-- Instagram -->
+                <a class="btn btn-link btn-floating btn-lg text-white m-1"
+                   href="#!"
+                   role="button"
+                   data-mdb-ripple-color="dark">
+                    <i class="bi bi-instagram"></i>
+                </a>
+
+            </section>
+            <!-- Section: Social media -->
+        </div>
+        <!-- Grid container -->
+        <!-- Copyright -->
+        <div class="text-center text-white p-3 d-flex w-75 align-items-center" style="background-color: rgba(0, 0, 0, 0.2);">
+            <p class="mb-0 me-2">© 2020 Copyright:</p>
+            <a class="text-white" href="https://mdbootstrap.com/">Giuseppe Di Pisa</a>
+        </div>
+    </footer>
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>

@@ -25,6 +25,7 @@ namespace ConcertListing_Capstone.Controllers
         public ActionResult Details(int? id)
         {
             TempData["IdConcerto"] = id;
+            TempData["LoginNecessario"] = "Esegui l'accesso per vedere questo contenuto";
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -145,6 +146,12 @@ namespace ConcertListing_Capstone.Controllers
        public ActionResult PaginaConcerti()
         {
             return View();
+        }
+
+        public ActionResult PWConcerti(int id)
+        {
+            var concertiid = db.Concerto.Where( x => x.IdArtistaBand == id);
+            return PartialView("_PWConcerti", concertiid);
         }
 
         protected override void Dispose(bool disposing)
