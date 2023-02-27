@@ -12,7 +12,7 @@
     <div class="searchSection">
         <form class="" role="search">
             <div class="d-flex w-100 justify-content-center">
-                <input class="form-control me-2 w-100" id="SearchArtist" type="search" placeholder="Digita il nome dell'artista'" aria-label="Search">
+                <input class="form-control me-2 w-100" id="SearchArtist" type="search" placeholder="Digita il nome dell'artista" aria-label="Search">
                 <btn class="personal-button" id="ArtistBySearch" type="submit">Cerca <i class="bi bi-search"></i></btn>
             </div>
         </form>
@@ -31,7 +31,7 @@
 <div class="row text-center mb-5">
 
 </div>
-<div class="container d-flex flex-wrap justify-content-around align-items-center h-100 ">
+<div id="artist-list" class="container d-flex flex-wrap justify-content-around align-items-center h-100 ">
     @foreach (var item in Model)
     {
         <div class="card mb-4" style="background-image: url(/Content/ArtistaImg/@Html.DisplayFor(modelItem => item.Foto))">
@@ -45,7 +45,6 @@
                 </p>
                 @Html.ActionLink("Clicca per i dettagli", "Details", "Artista", new { id = item.IdArtista}, new { @class = "btn personal-button" })
             </div>
-
         </div>
     }
 </div>
@@ -69,15 +68,15 @@
                         $("#artist-list").append("<div class=\"alert alert-warning mt-2\" style=\"width:200px\">Non è stato trovato alcun artista</div>"
                         )
                     } else {
-                        $("#artist-list").append("<div class=\"animalCard\" >" +
-                            "<a href=\"../Artista/Details/" + a.IdArtista + "\">" +
-                            "<div class=\"cardBody\">" +
-                            "<img class=\"cardIcon\" src=\"/Content/Assets/Img/pet-friendly.png\" style=\"width:100px\" />" +
-                            "<h5 class=\"card-title\">" + a.Nome + "</h5>" +
+                        $("#artist-list").append(
 
+                            "<div class=\"card mb-4\" style=\"background-image: url(/Content/ArtistaImg/" + a.Foto + ")\">" +
+                            "<div class=\"concert-info d-flex flex-column text-center  justify-content-end align-items-center\">" +
+                            "<h2>" + a.Nome + "</h2>" +
+                            "<p class=\"citta\">" + a.Genere + "</p>" +
+                            "<a class= \"btn personal-button\"href=\"/Artista/Details/" + a.IdArtista +  "\"> Clicca per i dettagli </a>" +
                             "</div>" +
-                            "<img src=\"/Content/ArtistaImg/" + a.Foto + "\" class=\"card-img-bottom\" style=\"width:200px\">" +
-                            "</a></div>"
+                            "</div >"
                         );
 
                     }

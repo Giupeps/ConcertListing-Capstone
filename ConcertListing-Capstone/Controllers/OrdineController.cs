@@ -70,6 +70,7 @@ namespace ConcertListing_Capstone.Controllers
             ordine.Concerto.Artista = artista;
             
             Ordine.ListaCarrello.Add(ordine);
+            Ordine.TotaleCarrello.Add(ordine.PrezzoTotale);
             return Json("Prodotto aggiunto al carrello", JsonRequestBehavior.AllowGet);
         }
 
@@ -93,6 +94,14 @@ namespace ConcertListing_Capstone.Controllers
             TempData["count"] = count;
             Ordine.ListaCarrello.Clear();
             return RedirectToAction("VediOrdine");
+        }
+
+        public ActionResult SvuotaCarrello()
+        {
+            Ordine.ListaCarrello.Clear();
+            Ordine.TotaleCarrello.Clear();
+            return RedirectToAction("Carrello");
+
         }
 
         public ActionResult VediOrdine()

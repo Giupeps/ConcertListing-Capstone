@@ -4,10 +4,10 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2 class="mb-5">Gestione Luoghi</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
+<p class="mb-3 mx-0 create-button">
+    @Html.ActionLink("Crea nuovo luogo", "Create")
 </p>
 <table class="table">
     <tr>
@@ -35,9 +35,8 @@
             @Html.DisplayFor(modelItem => item.Indirizzo)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdLuogo }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IdLuogo }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdLuogo })
+            @Html.ActionLink("Modifica", "Edit", new { id=item.IdLuogo }, new {@class="modify-button"}) |
+            @Html.ActionLink("X", "Delete", new { id=item.IdLuogo }, new {@class="delete-button"})
         </td>
     </tr>
 }

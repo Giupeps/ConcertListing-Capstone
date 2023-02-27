@@ -307,6 +307,7 @@
     <Content Include="Views\Artista\ArtistBySearch.cshtml" />
     <Content Include="Views\Ordine\VediOrdine.cshtml" />
     <Content Include="Views\Concerto\_PWConcerti.cshtml" />
+    <Content Include="Views\Artista\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

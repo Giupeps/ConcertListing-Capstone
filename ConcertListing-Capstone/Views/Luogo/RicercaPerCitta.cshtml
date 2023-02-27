@@ -4,19 +4,19 @@
     ViewBag.Title = "RicercaPerCitta";
 }
 
-<h2>RicercaPerCitta</h2>
+<h3>Cerca i concerti nella tua città</h3>
 
-<div class="container">
-    <div id="Query">
+<div class="container mt-5">
+    <div id="Query" class="d-flex flex-wrap">
         @foreach (var item in Model)
         {
             <p class="mx-2 mb-3 fs-5">@Html.DisplayFor(modelItem => item.Città) <input type="checkbox" class="CheckValue" name="@item.Città" value="@item.Città" /></p>
         }
     </div>
 
-    <button id="SearchType" class="btn bgprimary mb-5 mt-5">Cerca Artista</button>
+    <button id="SearchType" class="personal-button mb-5 mt-2">Cerca Concerti</button>
 
-    <div id="ResultSearch" class="mt-5 mb-5 d-flex gap-2"></div>
+    <div id="ResultSearch" class="container d-flex flex-wrap align-items-center h-100 my-5 "></div>
 
 </div>
 
@@ -43,15 +43,15 @@
                     $.each(a, function (index, valore) {
 
 
-                        $("#ResultSearch").append("<div class=\"concert-card\" >" +
-                            "<a class= \"mainbody\"href=\"/Concerto/Details/" + valore.IdConcerto + "?IdLuogo=" + valore.IdLuogo + "\" data-id=\"" + valore.IdLuogo + "\">" +
-                            "<div class=\"cardBody\">" +
-                            "<h5 class=\"card-title\">" + valore.Nome + "</h5>" +
-                            "<p class=\"card-text\">" + valore.Città + "</p>" +
-                            "<p class=\"card-text\">" + valore.Data + "</p>" +
+                        $("#ResultSearch").append(
+
+                            "<div class=\"card mb-4\" style=\"background-image: url(/Content/ConcertoImg/" + valore.ImmagineCopertina + ")\">" +
+                            "<div class=\"concert-info d-flex flex-column text-center  justify-content-end align-items-center\">" +
+                            "<h2>" + valore.Nome + "</h2>" +
+                            "<p class=\"citta\">" + valore.Città + " " + " " + valore.Data + "</p>" +
+                            "<a class= \"btn personal-button\"href=\"/Concerto/Details/" + valore.IdConcerto + "?IdLuogo=" + valore.IdLuogo + "\" data-id=\"" + valore.IdLuogo + "\"> Clicca per i dettagli </a>" +
                             "</div>" +
-                            "<img src=\"/Content/ConcertoImg/" + valore.ImmagineCopertina + "\" class=\"card-img-bottom\" width=200>" +
-                            "</a></div>"
+                            "</div >"
                         );
 
                     })

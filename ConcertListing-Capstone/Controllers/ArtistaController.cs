@@ -14,6 +14,11 @@ namespace ConcertListing_Capstone.Controllers
     {
         private ModelDBContext db = new ModelDBContext();
 
+        public ActionResult Index()
+        {
+            return View(db.Artista.ToList());
+        }    
+
         // GET: Artista
         public ActionResult ListaArtisti()
         {
@@ -143,6 +148,7 @@ namespace ConcertListing_Capstone.Controllers
                 aj.IdArtista = a.Artista.IdArtista;
                 aj.Foto = a.Artista.Foto;
                 aj.IdConcerto = a.IdConcerto;
+                aj.Genere = a.Artista.Genere;
             }
             return Json(aj, JsonRequestBehavior.AllowGet);
         }

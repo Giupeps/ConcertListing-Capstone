@@ -1,0 +1,56 @@
+﻿@model IEnumerable<ConcertListing_Capstone.Models.Artista>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Gestione Artisti</h2>
+
+<p class="mx-0 my-3 create-button">
+    @Html.ActionLink("Aggiungi nuovo artista", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Foto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descrizione)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Genere)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sottogenere)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+           <img src="~/Content/ArtistaImg/@Html.DisplayFor(modelItem => item.Foto)" width="150"/>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descrizione)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Genere)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sottogenere)
+        </td>
+        <td>
+            @Html.ActionLink("Modifica", "Edit", new { id=item.IdArtista }, new {@class="modify-button"})
+            @Html.ActionLink("X", "Delete", new { id=item.IdArtista }, new {@class="delete-button"})
+        </td>
+    </tr>
+}
+
+</table>

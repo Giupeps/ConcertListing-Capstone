@@ -1,51 +1,28 @@
 ﻿@model IEnumerable<ConcertListing_Capstone.Models.Concerto>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Artista.Nome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Luogo.NomeStruttura)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Data)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ImmagineCopertina)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Durata)
-        </th>
-        <th></th>
-    </tr>
+    <div class="text-center mt-5">
+        <h3>Prossimi Concerti</h3>
+    </div>
+<div class="container d-flex flex-wrap justify-content-around align-items-center h-100 my-5 ">
+    @foreach (var item in Model)
+    { 
+    var dataIta = item.Data.ToString("d");
+        ViewBag.itaData = dataIta;
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Artista.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Luogo.NomeStruttura)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Data)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ImmagineCopertina)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Durata)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdConcerto }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IdConcerto }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdConcerto })
-        </td>
-    </tr>
-}
 
-</table>
+        <div class="card mb-4" style="background-image: url(/Content/ConcertoImg/@Html.DisplayFor(modelItem => item.ImmagineCopertina))">
+
+
+            <div class="concert-info d-flex flex-column text-center  justify-content-end align-items-center">
+                <h2>@Html.DisplayFor(modelItem => item.Artista.Nome)</h2>
+                <p class="citta">
+                    @Html.DisplayFor(modelItem => item.Luogo.Città)
+
+                    @ViewBag.itaData;
+                </p>
+                @Html.ActionLink("Clicca per i dettagli", "Details", "Concerto", new { id = item.IdConcerto, idLuogo = item.IdLuogo }, new { @class = "btn personal-button" })
+            </div>
+
+        </div>
+    }
+</div>

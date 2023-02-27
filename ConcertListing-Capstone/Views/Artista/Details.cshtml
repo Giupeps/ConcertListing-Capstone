@@ -3,27 +3,39 @@
 @{
     ViewBag.Title = "Details";
 }
+<div>
+    @Html.ActionLink("Torna alla lista", "ListaArtisti", new {@class="btn"})
+</div>
 
 <div class="title text-center">
     <h2>@Html.DisplayFor(model => model.Nome)</h2>
 </div>
 
+<div class="row align-items-center">
+    <div class="col-8 card-details-artist">
+        <div class="tile">
+            <div class="wrapper" style="background-image: url(/Content/ArtistaImg/@Html.DisplayFor(model => model.Foto));">
 
-<div class="col-12 card-details-artist">
-    <div class="tile">
-        <div class="wrapper" style="background-image: url(/Content/ConcertoImg/@Html.DisplayFor(model => model.Foto));">
 
 
-
-            <div class="dates">
-                <div class="start">
-                    <strong>Genere</strong>@Html.DisplayFor(model => model.Genere)
-                    <span></span>
-                </div>
-                <div class="ends">
-                    <strong>Sottogeneri</strong>  @Html.DisplayFor(model => model.Sottogenere)
+                <div class="dates">
+                    <div class="start">
+                        <strong>Genere</strong>@Html.DisplayFor(model => model.Genere)
+                        <span></span>
+                    </div>
+                    <div class="ends">
+                        <strong>Sottogeneri</strong>  @Html.DisplayFor(model => model.Sottogenere)
+                    </div>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div class="col-4">
+        <div class="description-box">
+            <p>
+                @Html.DisplayFor(model => model.Descrizione)
+            </p>
         </div>
     </div>
 </div>
@@ -35,5 +47,4 @@
 @{Html.RenderAction("PWConcerti", "Concerto"); }
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.IdArtista }) |
-    @Html.ActionLink("Back to List", "ListaArtisti")
 </p>

@@ -2,68 +2,55 @@
 
 @{
     ViewBag.Title = "Carrello";
+
+
 }
 
+<div class="text-center">
 <h2>Carrello</h2>
 
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Concerto.ImmagineCopertina)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Concerto.Artista.Nome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Posti.Luogo.Città)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Posti.Luogo.NomeStruttura)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Posti.Zona)
-        </th>
 
-        <th>
-            @Html.DisplayNameFor(model => model.Quantità)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PrezzoTotale)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-           <img src="~/Content/ConcertoImg/@Html.DisplayFor(modelItem => item.Concerto.ImmagineCopertina)" width="150"/>
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Concerto.Artista.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Concerto.Luogo.Città)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Concerto.Luogo.NomeStruttura)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Posti.Zona)
-        </td>
+<div class="order-md-2 mb-4 carrello text-center mx-auto">
+    @{ 
+        var carrello = ConcertListing_Capstone.Models.Ordine.ListaCarrello.Count();
+        if (carrello == 0) {
+            TempData["CarrelloVuoto"] = "Il tuo carrello è vuoto";
+            <h3 class="alert alert-danger w-100">@TempData["CarrelloVuoto"]</h3>
+        }
+    }
+    
+    @foreach (var item in Model)
+    {
 
-        <td>
-            @Html.DisplayFor(modelItem => item.Quantità)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PrezzoTotale)
-        </td>
-        <td>
-            @Html.ActionLink("Delete", "Delete", new { id = item.IdOrdine })
-        </td>
-    </tr>
-}
+        <ul class="list-group mb-3">
+            <li class="list-group-item d-flex justify-content-between align-items-center lh-condensed">
+                <div class="text-start">
+                    <h5 class="my-0">@Html.DisplayFor(modelItem => item.Concerto.Artista.Nome)</h5>
+                    <small>@Html.DisplayFor(modelItem => item.Concerto.Luogo.Città), @Html.DisplayFor(modelItem => item.Concerto.Luogo.NomeStruttura)</small><br />
+                    <small> @Html.DisplayFor(modelItem => item.Posti.Zona), Biglietti: @Html.DisplayFor(modelItem => item.Quantità)</small>
+                </div>
+                <span class="fs-4">@Html.DisplayFor(modelItem => item.PrezzoTotale)€</span>
+                @Html.ActionLink("X", "Delete", "Ordine", new { id = item.IdOrdine}, new {@class="delete-button"})
+            </li>
+        </ul>
+    }
+</div>
 
-</table>
+<div>
+    @{
+        decimal totaleCarrello = ConcertListing_Capstone.Models.Ordine.TotaleCarrello.Sum();
+    }
+    <h4>Totale: @totaleCarrello €</h4>
+    @if (carrello >= 1)
+    {
+    @Html.ActionLink("Conferma ordini", "Conferma", "Ordine", new { @class = "btn personal-button me-3 mt-3" })
+    @Html.ActionLink("Svuota Carrello", "SvuotaCarrello", "Ordine", new { @class = "btn empty-button mt-3" })
+    }
+</div>
 
-@Html.ActionLink("Conferma ordini", "Conferma", "Ordine", new {@class="brn btn-success"})
+    </div>
+
+
+

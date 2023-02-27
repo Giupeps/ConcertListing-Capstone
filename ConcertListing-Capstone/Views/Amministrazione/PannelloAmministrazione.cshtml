@@ -3,21 +3,21 @@
     ViewBag.Title = "PannelloAmministrazione";
 }
 
-<h2>Pannello Amministrazione</h2>
 
-<div class="container mx-auto border rounded">
+<div class="amm-box container mx-auto text-left">
+<h2>Pannello Amministrazione</h2>
     <ul>
         <li>
-            @Html.ActionLink("Gestione Artisti", "ListaArtisti", "Artista")
+            <i class="bi bi-music-note fs-3 me-2"></i> @Html.ActionLink("Gestione Artisti", "Index", "Artista")
         </li>
         <li>
-            @Html.ActionLink("Gestione Luoghi", "ListaLuoghi", "Luogo")
+            <i class="bi bi-geo-alt-fill fs-3 me-2"></i> @Html.ActionLink("Gestione Luoghi", "ListaLuoghi", "Luogo")
         </li>
         <li>
-            @Html.ActionLink("Gestione Concerti", "Index", "Concerto")
+            <i class="bi bi-calendar-check fs-3 me-2"></i>  @Html.ActionLink("Gestione Concerti", "Index", "Concerto")
         </li>
         <li>
-            @Html.ActionLink("Gestione Posti", "Index", "Posti")
+            <i class="bi bi-person-gear fs-3 me-2"></i>  @Html.ActionLink("Gestione Posti", "Index", "Posti")
         </li>
     </ul>
 </div>

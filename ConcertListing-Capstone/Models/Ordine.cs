@@ -32,5 +32,7 @@ namespace ConcertListing_Capstone.Models
         public static List<Ordine> ListaCarrello = new List<Ordine>();
 
         public static List<Ordine> OrdiniConfermati = new List<Ordine>();
+
+        public static List<decimal> TotaleCarrello = new List<decimal>();
     }
 }

@@ -45,14 +45,13 @@
                     </ul>
                 </div>
                 <div>
-                    <ul class="navbar-nav px-3">
+                    <ul class="navbar-nav px-3 align-items-center">
                         @if (User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item me-3">
 
                                 @Html.ActionLink("Carrello ", "Carrello", "Ordine")
-                                <i class="bi bi-bag-plus fs-5">
-                                </i>
+                             
 
                             </li>
                             <li class="nav-item">

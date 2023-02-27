@@ -20,6 +20,7 @@ namespace ConcertListing_Capstone.Models
         public int IdLuogo { get; set; }
 
         [Required]
+        [Display(Name = "Struttura")]
         public string NomeStruttura { get; set; }
 
         [Required]

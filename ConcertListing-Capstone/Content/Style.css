@@ -160,8 +160,9 @@ h1 {
 }
 .container .card .concert-info .personal-button {
   width: fit-content;
-  padding: 7px 20px;
-  margin: 3% auto;
+  padding: 10px 18px;
+  margin-top: 3%;
+  margin-bottom: 0;
   border: solid white 2px;
   color: white;
   transition: 0.5s;
@@ -393,11 +394,206 @@ p a:hover {
 }
 
 .card-details-artist .tile {
-  height: 45vh;
+  height: 50vh;
 }
 .card-details-artist .wrapper {
   background-size: cover;
+  background-position: center;
   border-radius: 2em;
+}
+
+.description-box {
+  border: 2px solid #7D8CC4;
+  border-radius: 1em;
+  padding: 1em;
+  min-height: 50vh;
+  max-height: 50vh;
+  overflow: scroll;
+  text-overflow: ellipsis;
+}
+.description-box p {
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.carrello {
+  margin-top: 2em;
+  width: 40%;
+}
+.carrello .list-group-item {
+  background-color: #7D8CC4;
+  border: 2px solid #E9FFF9;
+  color: white;
+}
+.carrello .list-group-item small {
+  color: white;
+}
+.carrello .list-group-item span {
+  color: green;
+  font-weight: bold;
+}
+.carrello .list-group-item .delete-button {
+  color: red;
+  text-decoration: none;
+  font-weight: bolder;
+}
+
+.empty-button {
+  width: fit-content;
+  padding: 7px 20px;
+  margin: 3% auto;
+  border: solid white 2px;
+  color: white;
+  transition: 0.5s;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.3em;
+  margin: 0;
+  background-color: darkred;
+  border: 1px solid black;
+  color: white;
+  border-radius: 0.5em;
+}
+.empty-button a {
+  text-decoration: none;
+}
+.empty-button:hover {
+  border: solid 2px #7D8CC4;
+  color: #7D8CC4;
+}
+.empty-button:hover {
+  border: 1px solid white;
+  color: white;
+}
+.empty-button:hover i {
+  color: white;
+}
+.empty-button i {
+  color: black;
+}
+
+.login {
+  border: 2px dotted #7D8CC4;
+  padding: 3% 0%;
+}
+.login h2 {
+  font-weight: bolder;
+  font-size: 3em;
+  color: #7D8CC4;
+}
+.login i {
+  font-size: 5em;
+}
+.login .form-group {
+  margin: 0 auto;
+}
+.login .form-group input {
+  margin: 0 auto;
+}
+.login .login-button {
+  width: 100%;
+}
+.login .login-button div {
+  width: 100%;
+}
+.login .login-button div .personal-button {
+  width: 75%;
+}
+
+.amm-box {
+  border: 2px dotted #7D8CC4;
+  border-radius: 1em;
+  width: 50%;
+  height: 70vh;
+  margin: auto;
+  padding: 3%;
+}
+.amm-box ul {
+  width: 100%;
+  height: 100%;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: space-evenly;
+  padding: 0;
+}
+.amm-box ul li {
+  text-align: left;
+}
+.amm-box ul li a {
+  text-align: left;
+  color: #363946;
+  text-decoration: none;
+  font-size: 2em;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+}
+.amm-box ul li a:hover {
+  color: white;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-decoration-style: solid;
+}
+
+.create-button a {
+  font-family: "Poppins", sans-serif;
+  color: #7D8CC4;
+  margin-top: 2em;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+table {
+  font-family: "Poppins", sans-serif;
+}
+table th {
+  color: #7D8CC4;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+table tr td {
+  color: #E9FFF9;
+}
+table tr td a {
+  color: #7D8CC4;
+  text-decoration: none;
+}
+table tr td a:hover {
+  color: #E9FFF9;
+}
+table tr td .modify-button {
+  color: #7D8CC4;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-right: 2em;
+}
+table tr td .delete-button {
+  color: red;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.form-horizontal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.form-horizontal .form-group {
+  width: 50%;
+  margin-top: 2vh;
+}
+.form-horizontal #Descrizione {
+  height: 20vh;
+  width: 52%;
+}
+.form-horizontal .form-control {
+  width: 100%;
+}
+.form-horizontal .form-control:hover {
+  background-color: #7D8CC4;
 }
 
 footer {
