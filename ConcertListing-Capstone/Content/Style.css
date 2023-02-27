@@ -4,6 +4,7 @@ body {
   color: white;
   height: 100vh;
   color: white;
+  font-family: "Poppins", sans-serif;
 }
 
 .body-content {
@@ -585,15 +586,47 @@ table tr td .delete-button {
   width: 50%;
   margin-top: 2vh;
 }
+.form-horizontal .control-label {
+  color: #7D8CC4;
+  font-weight: bold;
+  font-size: 1.5em;
+  margin-bottom: 0.2em;
+}
 .form-horizontal #Descrizione {
-  height: 20vh;
+  height: 15vh;
   width: 52%;
 }
 .form-horizontal .form-control {
   width: 100%;
 }
-.form-horizontal .form-control:hover {
-  background-color: #7D8CC4;
+.form-horizontal .form-control:focus {
+  border: 3px solid blue;
+}
+
+a {
+  color: #7D8CC4;
+  font-weight: bold;
+  text-decoration: none;
+}
+a:hover {
+  color: #E9FFF9;
+}
+
+.dl-horizontal {
+  border: 3px dotted #7D8CC4;
+  border-radius: 2em;
+  background-color: #363946;
+  padding: 3%;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  width: 50%;
+}
+.dl-horizontal dt {
+  color: #7D8CC4;
+  font-size: 1.5em;
+}
+.dl-horizontal dd {
+  margin-bottom: 5%;
 }
 
 footer {

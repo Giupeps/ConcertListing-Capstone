@@ -5,11 +5,12 @@
 }
 
 
+
 <div class="text-center mb-3">
     <h2>Acquista i biglietti per <span> @Html.DisplayFor(model => model.Artista.Nome) </span></h2>
 </div>
 <p>
-    
+
     @Html.ActionLink("Torna Indietro", "PaginaConcerti")
 </p>
 
@@ -18,12 +19,12 @@
         <div class="col-6">
             <div class="tile">
                 <div class="wrapper" style="background-image: url(/Content/ConcertoImg/@Html.DisplayFor(model => model.ImmagineCopertina));">
-                  
+
 
 
                     <div class="dates">
                         <div class="start">
-                            <strong>Data</strong> @Html.DisplayFor(model => model.Data.Date)
+                            <strong>Data</strong> @Html.DisplayFor(model => model.Data.Day)/@Html.DisplayFor(model => model.Data.Month)/@Html.DisplayFor(model => model.Data.Year)
                             <span></span>
                         </div>
                         <div class="ends">

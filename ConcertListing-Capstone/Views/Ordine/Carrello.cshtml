@@ -41,6 +41,12 @@
 <div>
     @{
         decimal totaleCarrello = ConcertListing_Capstone.Models.Ordine.TotaleCarrello.Sum();
+
+        if (carrello == 0)
+        {
+            totaleCarrello = 0;
+        }
+
     }
     <h4>Totale: @totaleCarrello €</h4>
     @if (carrello >= 1)

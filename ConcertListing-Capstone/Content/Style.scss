@@ -7,6 +7,7 @@ body {
     color: white;
     height: 100vh;
     color: white;
+    font-family: $poppins;
 }
 
 .body-content{
@@ -633,32 +634,75 @@ table {
         }
     }
 }
-    //CREATE FORM
 
-    .form-horizontal{
-        display:flex;
-        justify-content:space-between;
-        align-items:center;
-        flex-wrap:wrap;
-        .form-group{
-            width:50%;
-            margin:{
-                top: 2vh;
-            }
+
+//CREATE FORM
+
+.form-horizontal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .form-group {
+        width: 50%;
+
+        margin: {
+            top: 2vh;
         }
-        #Descrizione{
-            height: 20vh;
-            width: 52%;
-        }
-        .form-control{
-            width: 100%;
-            &:hover{
-                background-color: $dun;
-            }
-        }
- 
     }
 
+    .control-label{
+        color:$dun;
+        font-weight: bold;
+        font-size: 1.5em;
+        margin-bottom: 0.2em;
+    }
+
+    #Descrizione {
+        height: 15vh;
+        width: 52%;
+    }
+
+    .form-control {
+        width: 100%;
+
+        &:focus {
+            border: 3px solid blue;
+        }
+    }
+}
+
+a{
+    color: $dun;
+    font-weight: bold;
+    text-decoration: none;
+    &:hover{
+        color: $mint;
+    }
+}
+
+
+//DELETE FORM
+
+.dl-horizontal{
+    border: 3px dotted $dun;
+    border-radius: 2em;
+    background-color: $grey-headings;
+    padding: 3%;
+    margin:{
+        top: 2em;
+        bottom: 2em;
+    }
+    width: 50%;
+    dt{
+        color: $dun;
+        font-size: 1.5em;      
+    }
+    dd{
+        margin-bottom: 5%;
+    }
+}
 
     //FOOTER
 
