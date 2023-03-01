@@ -66,3 +66,33 @@
         color: $dun;
     }
 }
+
+@mixin phone {
+    @media (max-width: 599px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: 600px) {
+        @content;
+    }
+}
+
+@mixin tablet-landscape {
+    @media (min-width: 900px) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin big-desktop {
+    @media (min-width: 1800px) {
+        @content;
+    }
+}

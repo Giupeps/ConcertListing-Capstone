@@ -182,6 +182,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\ArtistaImg\dualipa.jpg" />
+    <Content Include="Content\ArtistaImg\dualipa2.jpg" />
+    <Content Include="Content\ArtistaImg\ladygaga2.jpg" />
+    <Content Include="Content\ArtistaImg\ladygaga3.jpg" />
+    <Content Include="Content\ArtistaImg\Lady_Gaga.jpg" />
+    <Content Include="Content\ArtistaImg\Maneskin.jpg" />
+    <Content Include="Content\ArtistaImg\mengoni-marco.jpg" />
+    <Content Include="Content\ArtistaImg\SteveVai.jpg" />
+    <Content Include="Content\ArtistaImg\stevevai2.jpg" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -198,6 +207,12 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\ConcertoImg\dualipaconcert.jpg" />
+    <Content Include="Content\ConcertoImg\lady-gaga-concerto.jpg" />
+    <Content Include="Content\ConcertoImg\maneskin-tour.jpg" />
+    <Content Include="Content\ConcertoImg\Mengoni tour.jpg" />
+    <Content Include="Content\ConcertoImg\steve-vai-inviolate-tour-2022.jpg" />
+    <Content Include="Content\ConcertoImg\stevevai2.jpg" />
     <Content Include="Content\Img\coldplay.jpg" />
     <Content Include="Content\Img\Concerto_logo.jpg" />
     <Content Include="Content\Img\dua-lipa.png" />
@@ -311,8 +326,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\ArtistaImg\" />
-    <Folder Include="Content\ConcertoImg\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

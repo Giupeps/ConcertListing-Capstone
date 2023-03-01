@@ -23,7 +23,8 @@ namespace ConcertListing_Capstone.Controllers
 
         public ActionResult RicercaPerCitta()
         {
-            return View(db.Luogo.ToList());
+            List<Luogo> cittaOrdered = db.Luogo.OrderBy(x => x.Città).ToList();
+            return View(cittaOrdered);
         }
 
         public JsonResult ConcertiPerCitta(string[] selezione)
