@@ -26,12 +26,15 @@ namespace ConcertListing_Capstone.Models
         public DateTime Data { get; set; }
 
         [Required]
+        [Display(Name = "Immagine")]
         public string ImmagineCopertina { get; set; }
 
         public int Durata { get; set; }
 
+        [Display(Name = "Luogo")]
         public int IdLuogo { get; set; }
 
+        [Display(Name = "Artista")]
         public int IdArtistaBand { get; set; }
 
         public virtual Artista Artista { get; set; }
